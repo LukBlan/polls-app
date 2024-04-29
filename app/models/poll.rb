@@ -1,4 +1,2 @@
-# frozen_string_literal: true
-
-class Poll
+class Poll < ApplicationRecord
 end
