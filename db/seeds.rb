@@ -25,6 +25,8 @@ bad_game = AnswerChoice.create!(question_id:  elder_ring_question.id, text: "Bad
 good_book = AnswerChoice.create!(question_id: java_question.id, text: "Good book")
 bad_book = AnswerChoice.create!(question_id: java_question.id, text: "Bad book")
 
-Response.create!(user_id: tevez.id, answer_choice_id: good_game.id)
-Response.create!(user_id: ronaldo.id, answer_choice_id: bad_book.id)
-Response.create!(user_id: tevez.id, answer_choice_id: good_book.id)
+# Teves Responses
+response1 = Response.create!(user_id: tevez.id, answer_choice_id: good_game.id)
+
+# Ronaldo Responses
+response2 = Response.create!(user_id: ronaldo.id, answer_choice_id: bad_book.id)
