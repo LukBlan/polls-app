@@ -6,6 +6,7 @@ class Response < ApplicationRecord
 
   has_one :question, through: :answer_choice, source: :question
   has_one :poll_owner, through: :answer_choice, source: :question_poll_owner
+  has_one :poll, through: :answer_choice, source: :poll
 
   def not_duplicated_response
     errors.add(:answer_choice_id, "User can't have duplicate responses") if duplicate_response?

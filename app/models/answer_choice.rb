@@ -4,4 +4,5 @@ class AnswerChoice < ApplicationRecord
   belongs_to :question
   has_many :responses
   has_one :question_poll_owner, through: :question, source: :owner
+  has_one :poll, through: :question, source: :poll
 end
