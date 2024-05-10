@@ -5,7 +5,6 @@ class Response < ApplicationRecord
   belongs_to :respondent, foreign_key: :user_id, class_name: "User"
 
   has_one :question, through: :answer_choice, source: :question
-  has_one :poll_owner, through: :answer_choice, source: :question_poll_owner
   has_one :poll, through: :answer_choice, source: :poll
 
   def not_duplicated_response
@@ -21,7 +20,9 @@ class Response < ApplicationRecord
   end
 
   def owned_pool?
-    poll_owner.id == self.user_id
+    owner_id = AnswerChoice.joins(question: :owner)
+                       .where(id: self.answer_choice_id).pluck(:author_id).first
+    owner_id == self.user_id
   end
 end
 
